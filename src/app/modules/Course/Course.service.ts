@@ -1,4 +1,5 @@
-import { ICourse, ICoursewithReviews } from './Course.interface';
+import { Review } from '../Review/review.model';
+import { ICourse } from './Course.interface';
 import { Course } from './Course.model';
 
 const createCourseIntoDB = async (payLoad: ICourse) => {
@@ -17,12 +18,10 @@ const updateCourseFromDB = async (id: string, payLoad: Partial<ICourse>) => {
   return result;
 };
 // get reviews with CourseId
-const getASpecificCoursewithReviewsFromDB = async (
-  id: string,
-  payLoad: ICoursewithReviews,
-) => {
-  const result = await Course.findById(id, payLoad);
-  return result;
+const getASpecificCoursewithReviewsFromDB = async (courseId: string) => {
+  const result = await Course.findById(courseId);
+  const reviews = await Review.find({ courseId });
+  return { result, reviews };
 };
 
 export const courseServices = {

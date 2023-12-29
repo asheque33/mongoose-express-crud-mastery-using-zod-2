@@ -39,15 +39,13 @@ const updateCourse = catchAsync(async (req, res) => {
 //
 const getSingleCourseWithReviews = catchAsync(async (req, res) => {
   const { courseId } = req.params;
-  const result = await courseServices.getASpecificCoursewithReviewsFromDB(
-    courseId,
-    req.body,
-  );
+  const result =
+    await courseServices.getASpecificCoursewithReviewsFromDB(courseId);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Course is retrieved succesfully',
+    message: 'Course and Reviews retrieved succesfully',
     data: result,
   });
 });

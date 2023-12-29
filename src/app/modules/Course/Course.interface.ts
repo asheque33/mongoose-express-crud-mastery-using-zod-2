@@ -24,5 +24,5 @@ export type ICourse = {
 
 export type ICoursewithReviews = {
   course: Types.ObjectId;
-  reviews: Types.ObjectId[];
+  reviews: [Types.ObjectId];
 };
