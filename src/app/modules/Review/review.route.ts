@@ -10,7 +10,7 @@ router.post(
   validateRequest(reviewValidations.createReviewValidationSchema),
   reviewController.createReview,
 );
-router.get('/', reviewController.getAllReviews);
+router.get('/reviews', reviewController.getAllReviews);
 router.get('/:id', reviewController.getSingleReview);
 router.put(
   '/:id',

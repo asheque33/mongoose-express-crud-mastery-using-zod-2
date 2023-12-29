@@ -20,7 +20,7 @@ const getAllReviews = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Reviews are retrieved successfully',
+    message: 'Reviews  retrieved successfully',
     data: result,
   });
 });
