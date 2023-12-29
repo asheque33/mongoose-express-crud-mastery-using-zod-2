@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
 import { IGenericErrorResponse } from '../interface/error';
 
-const handleCastError = (
-  error: mongoose.Error.CastError,
+const handleValidationError = (
+  error: mongoose.Error.ValidationError,
 ): IGenericErrorResponse => {
   const errorMessage = error?.message;
   const statusCode = 400;
   return {
     statusCode,
-    message: 'Invalid ID ',
+    message: 'Validation error',
     errorMessage,
   };
 };
-export default handleCastError;
+export default handleValidationError;

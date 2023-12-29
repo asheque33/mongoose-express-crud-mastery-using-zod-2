@@ -7,9 +7,9 @@ const createCourse = catchAsync(async (req, res) => {
   const result = await courseServices.createCourseIntoDB(req.body);
 
   sendResponse(res, {
-    statusCode: httpStatus.OK,
     success: true,
-    message: 'Course is created succesfully',
+    statusCode: httpStatus.OK,
+    message: 'Course created succesfully',
     data: result,
   });
 });
@@ -25,18 +25,6 @@ const getAllCourses = catchAsync(async (req, res) => {
   });
 });
 
-const getSingleCourse = catchAsync(async (req, res) => {
-  const { courseId } = req.params;
-  const result = await courseServices.getASpecificCourseFromDB(courseId);
-
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'Course is retrieved succesfully',
-    data: result,
-  });
-});
-
 const updateCourse = catchAsync(async (req, res) => {
   const { courseId } = req.params;
   const result = await courseServices.updateCourseFromDB(courseId, req.body);
@@ -48,10 +36,25 @@ const updateCourse = catchAsync(async (req, res) => {
     data: result,
   });
 });
+//
+const getSingleCourseWithReviews = catchAsync(async (req, res) => {
+  const { courseId } = req.params;
+  const result = await courseServices.getASpecificCoursewithReviewsFromDB(
+    courseId,
+    req.body,
+  );
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Course is retrieved succesfully',
+    data: result,
+  });
+});
 
 export const courseController = {
   createCourse,
   getAllCourses,
-  getSingleCourse,
   updateCourse,
+  getSingleCourseWithReviews,
 };

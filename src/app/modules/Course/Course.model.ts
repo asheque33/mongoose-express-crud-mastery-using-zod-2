@@ -1,5 +1,12 @@
 import { Schema, model } from 'mongoose';
-import { ICourse, IDetails, ITags } from './Course.interface';
+import {
+  ICourse,
+  ICoursewithReviews,
+  IDetails,
+  ITags,
+} from './Course.interface';
+import AppError from '../../errors/appError';
+import httpStatus from 'http-status';
 
 const tagsSchema = new Schema<ITags>({
   name: { type: String, required: [true, 'Name is required'] },
@@ -24,7 +31,6 @@ const courseSchema = new Schema<ICourse>({
   instructor: { type: String, required: [true, 'instructor is required'] },
   categoryId: {
     type: Schema.Types.ObjectId,
-    unique: true,
     ref: 'Category',
     required: [true, 'categoryId is required'],
   },
@@ -41,4 +47,37 @@ const courseSchema = new Schema<ICourse>({
   details: detailsSchema,
 });
 
+courseSchema.pre('save', async function (next) {
+  const isCourseExist = await Course.findOne({
+    title: this.title,
+  });
+
+  if (isCourseExist) {
+    throw new AppError(httpStatus.NOT_FOUND, 'This Course is already exist!');
+  }
+
+  next();
+});
+
 export const Course = model<ICourse>('Course', courseSchema);
+
+//
+const coursewithReviewsSchema = new Schema<ICoursewithReviews>({
+  course: {
+    type: Schema.Types.ObjectId,
+    unique: true,
+    ref: 'Course',
+    required: [true, 'course is required'],
+  },
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Review',
+      required: [true, 'reviews are required'],
+    },
+  ],
+});
+export const CoursewithReview = model<ICoursewithReviews>(
+  'CoursewithReview',
+  coursewithReviewsSchema,
+);

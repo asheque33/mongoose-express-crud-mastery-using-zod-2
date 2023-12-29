@@ -21,3 +21,8 @@ export type ICourse = {
   durationInWeeks: number;
   details: IDetails;
 };
+
+export type ICoursewithReviews = {
+  course: Types.ObjectId;
+  reviews: Types.ObjectId[];
+};
