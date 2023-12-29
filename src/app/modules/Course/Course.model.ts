@@ -25,6 +25,7 @@ const courseSchema = new Schema<ICourse>({
   categoryId: {
     type: Schema.Types.ObjectId,
     unique: true,
+    ref: 'Category',
     required: [true, 'categoryId is required'],
   },
   price: { type: Number, required: [true, 'price is required'] },
