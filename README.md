@@ -28,13 +28,13 @@
 
 ### Error Patterns
 
-- _status code_
+- **status code**
   - Number
-- _message_
+- **message**
   - String
-- _error message_
+- **error message**
   - String
-- _errorDetails_
+- **errorDetails**
   - Array Of Objects
-- _stack_
-- Object
+- **stack**
+  - Object

@@ -1,3 +1,5 @@
+import { IQueryObject } from '../../interface/iQueryObject';
+import { getQuery } from '../../trigger/getQuery';
 import { Review } from '../Review/review.model';
 import { ICourse } from './Course.interface';
 import { Course } from './Course.model';
@@ -8,8 +10,9 @@ const createCourseIntoDB = async (payLoad: ICourse) => {
   return result;
 };
 // get all courses in the database through the pagination & filtering
-const getCoursesFromDB = async () => {
-  const result = await Course.find();
+const getCoursesFromDB = async (query: IQueryObject) => {
+  const result = await getQuery(Course.find(), query);
+
   return result;
 };
 
