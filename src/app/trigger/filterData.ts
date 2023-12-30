@@ -9,6 +9,7 @@ export const filter = <T>(modelQuery: Query<T[], T>, query: IQueryObject) => {
     'limit',
     'sortBy',
     'sortOrder',
+    'fields',
     'minPrice',
     'maxPrice',
     'tags',

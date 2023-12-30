@@ -4,13 +4,14 @@ export type IQueryObject = {
   limit?: string;
   sortBy?: string;
   sortOrder?: string;
-  minPrice?: string | number;
-  maxPrice?: string | number;
+  fields?: string;
+  minPrice?: string;
+  maxPrice?: string;
   tags?: string;
   starDate?: string;
   endDate?: string;
   language?: string;
   provider?: string;
-  durationInWeeks?: number | string;
+  durationInWeeks?: string;
   level?: string;
 };
