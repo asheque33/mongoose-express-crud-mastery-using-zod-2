@@ -10,7 +10,5 @@ export const getQuery = <T>(modelQuery: Query<T[], T>, query: IQueryObject) => {
   //   const searchedQuery = search(filteredQuery, query);
   const sortedQuery = sort(filteredQuery, query);
   const paginatedQuery = paginate(sortedQuery, query);
-  //   const selectedFieldQuery = select(paginatedQuery, query);
-  //   return selectedFieldQuery;
   return paginatedQuery;
 };

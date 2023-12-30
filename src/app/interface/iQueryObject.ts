@@ -5,6 +5,7 @@ export type IQueryObject = {
   sortBy?: string;
   sortOrder?: string;
   minPrice?: string | number;
+  maxPrice?: string | number;
   tags?: string;
   starDate?: string;
   endDate?: string;
