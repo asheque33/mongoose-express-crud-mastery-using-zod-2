@@ -1,16 +1,19 @@
-import { object } from 'zod';
 import { Review } from '../Review/review.model';
 import { ICourse } from './Course.interface';
 import { Course } from './Course.model';
 
+// create a new Course into the database
 const createCourseIntoDB = async (payLoad: ICourse) => {
   const result = await Course.create(payLoad);
   return result;
 };
+// get all courses in the database through the pagination & filtering
 const getCoursesFromDB = async () => {
   const result = await Course.find();
   return result;
 };
+
+// update the courses primitive & non-primitive fields in the db
 const updateCourseFromDB = async (id: string, payLoad: Partial<ICourse>) => {
   const { details, ...remainingCourseData } = payLoad;
   const modifiedUpdatedData: Record<string, unknown> = {
@@ -30,7 +33,7 @@ const updateCourseFromDB = async (id: string, payLoad: Partial<ICourse>) => {
   });
   return result;
 };
-// get reviews with CourseId
+// get course by Id with reviews
 const getASpecificCoursewithReviewsFromDB = async (courseId: string) => {
   const course = await Course.findById(courseId);
   const reviews = await Review.find({ courseId });

@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post(
   '/course',
-  validateRequest(courseValidations.createCourseValidationSchema),
+  // validateRequest(courseValidations.createCourseValidationSchema),
   courseController.createCourse,
 );
 router.get('/courses', courseController.getAllCourses);

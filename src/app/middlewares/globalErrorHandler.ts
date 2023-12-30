@@ -61,15 +61,3 @@ const globalErrorHandler: ErrorRequestHandler = (
     errorDetails: error,
   });
 };
-
-export default globalErrorHandler;
-
-/*
-pattern =>
-1.message;
-2.statusCode
-3.errorMessage
-4.errorDetails
-5.stack
-
-*/

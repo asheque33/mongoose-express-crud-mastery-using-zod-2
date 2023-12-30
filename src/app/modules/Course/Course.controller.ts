@@ -13,7 +13,7 @@ const createCourse = catchAsync(async (req, res) => {
     data: result,
   });
 });
-
+//
 const getAllCourses = catchAsync(async (req, res) => {
   const result = await courseServices.getCoursesFromDB();
 

@@ -10,12 +10,5 @@ router.post(
   validateRequest(reviewValidations.createReviewValidationSchema),
   reviewController.createReview,
 );
-router.get('/reviews', reviewController.getAllReviews);
-router.get('/:id', reviewController.getSingleReview);
-router.put(
-  '/:id',
-  validateRequest(reviewValidations.updateReviewValidationSchema),
-  reviewController.updateReview,
-);
 
 export const reviewRoutes = router;

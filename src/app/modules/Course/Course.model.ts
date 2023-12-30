@@ -55,23 +55,3 @@ courseSchema.pre('save', async function (next) {
 });
 
 export const Course = model<ICourse>('Course', courseSchema);
-
-// const coursewithReviewsSchema = new Schema<ICoursewithReviews>({
-//   course: {
-//     type: Schema.Types.ObjectId,
-//     unique: true,
-//     ref: 'Course',
-//     required: [true, 'course is required'],
-//   },
-//   reviews: [
-//     {
-//       type: Schema.Types.ObjectId,
-//       ref: 'Review',
-//       required: [true, 'reviews are required'],
-//     },
-//   ],
-// });
-// export const CoursewithReview = model<ICoursewithReviews>(
-//   'CoursewithReview',
-//   coursewithReviewsSchema,
-// );
