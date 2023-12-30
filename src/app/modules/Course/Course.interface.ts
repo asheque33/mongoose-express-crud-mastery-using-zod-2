@@ -14,8 +14,8 @@ export type ICourse = {
   categoryId: Types.ObjectId;
   price: number;
   tags: ITags[];
-  startData: string;
-  endData: string;
+  startDate: string;
+  endDate: string;
   language: string;
   provider: string;
   durationInWeeks: number;

@@ -31,8 +31,8 @@ const courseSchema = new Schema<ICourse>({
   },
   price: { type: Number, required: [true, 'price is required'] },
   tags: [tagsSchema],
-  startData: { type: String, required: [true, 'startData is required'] },
-  endData: { type: String, required: [true, 'endData is required'] },
+  startDate: { type: String, required: [true, 'startData is required'] },
+  endDate: { type: String, required: [true, 'endData is required'] },
   language: { type: String, required: [true, 'Language is required'] },
   provider: { type: String, required: [true, 'provider is  required'] },
   durationInWeeks: {

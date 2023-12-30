@@ -18,8 +18,8 @@ export const createCourseValidationSchema = z.object({
   categoryId: z.string(),
   price: z.number().positive({ message: 'Price must be a positive number' }),
   tags: z.array(createTagSchema),
-  startData: z.string(),
-  endData: z.string(),
+  startDate: z.string(),
+  endDate: z.string(),
   language: z.string(),
   provider: z.string(),
   durationInWeeks: z
